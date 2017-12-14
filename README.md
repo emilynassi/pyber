@@ -135,22 +135,26 @@ urban = ride_counts_df[ride_counts_df['Type of City'] == 'Urban']
 #add grid
 plt.grid() 
 
+
 #settings for urban
-urban_plt = plt.scatter(urban['Rides Per City'], urban['Average Fare'], s = urban['Number of Drivers']*6, color = 'lightcoral', edgecolor = 'black',
-            label = 'Urban', alpha = .75)
+plt.scatter(urban['Rides Per City'], urban['Average Fare'], s = urban['Number of Drivers']*6, color = 'lightcoral', edgecolor = 'black',
+        label = 'Urban', alpha = .75)
 #settings for suburban
-suburban_plt = ax = plt.scatter(suburban['Rides Per City'], suburban['Average Fare'], s = suburban['Number of Drivers']*6, color = 'lightskyblue', edgecolor = 'black',
-           label = 'Urban', alpha = .75)
+plt.scatter(suburban['Rides Per City'], suburban['Average Fare'], s = suburban['Number of Drivers']*6, color = 'lightskyblue', edgecolor = 'black',
+           label = 'Suburban', alpha = .75)
 #settings for suburban
-rural_plt = plt.scatter(rural['Rides Per City'], rural['Average Fare'], s = rural['Number of Drivers']*6, color = 'gold', edgecolor = 'black',
-            label = 'Urban', alpha = .75, )
+plt.scatter(rural['Rides Per City'], rural['Average Fare'], s = rural['Number of Drivers']*6, color = 'gold', edgecolor = 'black',
+            label = 'Rural', alpha = .75, )
 
 #change field size
 plt.xlim(0, 40)
 plt.ylim(15,52)
 
 #add legend
-plt.legend((rural_plt,urban_plt,suburban_plt),("Rural","Urban","Suburban"),title="City Types")
+lgnd = plt.legend(loc='best')
+lgnd.legendHandles[0]._sizes = [70]
+lgnd.legendHandles[1]._sizes = [70]
+lgnd.legendHandles[2]._sizes = [70]
 
 # Create a title, x label, and y label for plot
 plt.title("Pyber Ride Sharing Data (2016)")
