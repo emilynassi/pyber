@@ -8,9 +8,7 @@ Analysis:
 ```python
 #import dependencies
 from matplotlib import pyplot as plt
-from scipy import stats
-
-import numpy as np
+import seaborn as sns
 import pandas as pd
 import os
 ```
@@ -133,11 +131,10 @@ urban = ride_counts_df[ride_counts_df['Type of City'] == 'Urban']
 
 ```python
 #add grid
-plt.grid() 
-
+plt.grid(color="white") 
 
 #settings for urban
-plt.scatter(urban['Rides Per City'], urban['Average Fare'], s = urban['Number of Drivers']*6, color = 'lightcoral', edgecolor = 'black',
+urbanplt = plt.scatter(urban['Rides Per City'], urban['Average Fare'], s = urban['Number of Drivers']*6, color = 'lightcoral', edgecolor = 'black',
         label = 'Urban', alpha = .75)
 #settings for suburban
 plt.scatter(suburban['Rides Per City'], suburban['Average Fare'], s = suburban['Number of Drivers']*6, color = 'lightskyblue', edgecolor = 'black',
